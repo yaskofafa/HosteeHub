@@ -1,0 +1,13 @@
+local players = game:GetService("Players")
+local plr = game:GetService("Players").LocalPlayer
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Fuzki-UI-Library/main/FuzkiLibrary.lua"))() -- Gets the Library
+local Main = Library:Create("Hostee Scriptz", "dsc.gg/hosteehub") -- Creates Main Window | Fuzki (Hub Name) | Baseplate (Game Name)
+
+local Preview = Main:CreateSection("See Trade Scam!")
+
+Preview:CreateLabel("Trade Scam Made By Hostee Hub") -- Text Label with text inside of " "
+
+Preview:CreateToggle("Start Trade Scam", function(state) -- creates Toggle
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/HosteeScriptz/HosteeHub/main/code.lua"))()
+end)
