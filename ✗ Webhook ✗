@@ -40,7 +40,7 @@ local function sendwebhook()
                     }, 
                     { 
                         ["name"] = "Pet Name & Rarity", 
-                        ["value"] = "```Pet Name: " .. _G.PetName .. "```", 
+                        ["value"] ="```Pet Name: ".._G.PetName.."\nPet Rarity: ".._G.PetRar.."```", 
                         ["inline"] = true 
                     } 
                 } 
